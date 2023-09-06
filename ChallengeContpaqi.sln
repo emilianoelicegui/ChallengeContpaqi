@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.6.33723.286
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebContpaqi", "WebContpaqi\WebContpaqi.csproj", "{27176A39-1066-4FB3-BAE7-80630267682C}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{27176A39-1066-4FB3-BAE7-80630267682C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{27176A39-1066-4FB3-BAE7-80630267682C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{27176A39-1066-4FB3-BAE7-80630267682C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{27176A39-1066-4FB3-BAE7-80630267682C}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {F54249E3-C294-43C1-ACED-B7F2C44586BB}
+	EndGlobalSection
+EndGlobal
