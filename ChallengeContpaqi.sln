@@ -3,7 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.6.33723.286
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebContpaqi", "WebContpaqi\WebContpaqi.csproj", "{27176A39-1066-4FB3-BAE7-80630267682C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Contpaqi.Web", "Contpaqi.Web\Contpaqi.Web.csproj", "{27176A39-1066-4FB3-BAE7-80630267682C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Contpaqi.Services", "Contpaqi.Services\Contpaqi.Services.csproj", "{8540B693-585B-47B8-B543-E4C719E31062}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Contpaqi.Repositories", "Contpaqi.Repositories\Contpaqi.Repositories.csproj", "{194ED4FF-8BE8-4BAB-8DA6-1D0D80D5EAFB}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +19,14 @@ Global
 		{27176A39-1066-4FB3-BAE7-80630267682C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{27176A39-1066-4FB3-BAE7-80630267682C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{27176A39-1066-4FB3-BAE7-80630267682C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8540B693-585B-47B8-B543-E4C719E31062}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8540B693-585B-47B8-B543-E4C719E31062}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8540B693-585B-47B8-B543-E4C719E31062}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8540B693-585B-47B8-B543-E4C719E31062}.Release|Any CPU.Build.0 = Release|Any CPU
+		{194ED4FF-8BE8-4BAB-8DA6-1D0D80D5EAFB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{194ED4FF-8BE8-4BAB-8DA6-1D0D80D5EAFB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{194ED4FF-8BE8-4BAB-8DA6-1D0D80D5EAFB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{194ED4FF-8BE8-4BAB-8DA6-1D0D80D5EAFB}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
