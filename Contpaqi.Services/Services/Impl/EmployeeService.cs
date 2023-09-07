@@ -34,9 +34,10 @@ namespace Contpaqi.Application.Services.Impl
 
                 if (employee == null)
                     _unitOfWork.EmployeeRepository
-                        .Add(_mapper.Map<Employee>(employee));
-                else  
-                    _mapper.Map<Employee>(employee);
+                        .Add(_mapper.Map<Employee>(employeeDto));
+                else
+                    _mapper.Map(employeeDto, employee);
+
 
                 await _unitOfWork.CommitAsync();
             }
@@ -52,8 +53,10 @@ namespace Contpaqi.Application.Services.Impl
         {
             _logger.LogInformation("GetAllAsync service init ..");
 
+            var result = await _unitOfWork.EmployeeRepository.GetAllAsync();
+            
             return _mapper.Map<IEnumerable<EmployeeListDto>>
-                (await _unitOfWork.EmployeeRepository.GetAllAsync());
+                (result);
         }
 
         public async Task<EmployeeDto> GetAsync(int id)

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -9,11 +10,14 @@ namespace Contpaqi.Data.DataTransferObjects
     public class EmployeeDto
     {
         public int? Id { get; set; }
-
+        
+        [Required(ErrorMessage = "El nombre es requerido")]
         public string Name { get; set; } = null!;
 
+        [Required(ErrorMessage = "El apellido es requerido")]
         public string LastName { get; set; } = null!;
 
+        [Required(ErrorMessage = "El apellido materno es requerido")]
         public string MiddleName { get; set; } = null!;
 
         public int Age { get; set; }

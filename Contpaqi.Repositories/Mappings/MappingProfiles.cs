@@ -9,8 +9,11 @@ namespace Contpaqi.Data.Mappings
     {
         public MappingProfiles()
         {
-            CreateMap<Employee, EmployeeListDto>();
+            CreateMap<Employee, EmployeeListDto>()
+                .ForMember(dist => dist.FullName, opt => opt
+                .MapFrom(src => $"{src.Name}, {src.LastName} {src.MiddleName}"));
 
+            CreateMap<Employee, EmployeeDto>();
             CreateMap<EmployeeDto, Employee>();
         }
     }
