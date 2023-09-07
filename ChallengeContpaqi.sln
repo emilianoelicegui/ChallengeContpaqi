@@ -5,9 +5,9 @@ VisualStudioVersion = 17.6.33723.286
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Contpaqi.Web", "Contpaqi.Web\Contpaqi.Web.csproj", "{27176A39-1066-4FB3-BAE7-80630267682C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Contpaqi.Services", "Contpaqi.Services\Contpaqi.Services.csproj", "{8540B693-585B-47B8-B543-E4C719E31062}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Contpaqi.Application", "Contpaqi.Services\Contpaqi.Application.csproj", "{8540B693-585B-47B8-B543-E4C719E31062}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Contpaqi.Repositories", "Contpaqi.Repositories\Contpaqi.Repositories.csproj", "{194ED4FF-8BE8-4BAB-8DA6-1D0D80D5EAFB}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Contpaqi.Data", "Contpaqi.Repositories\Contpaqi.Data.csproj", "{194ED4FF-8BE8-4BAB-8DA6-1D0D80D5EAFB}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
