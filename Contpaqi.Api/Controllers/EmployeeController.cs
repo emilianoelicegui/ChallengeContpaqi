@@ -19,20 +19,41 @@ namespace Contpaqi.Api.Controllers
         [HttpGet("Get/{id}")]
         public async Task<IActionResult> Get(int id)
         {
-            return Ok(await _employeeService.GetAsync(id));
+            try
+            {
+                return Ok(await _employeeService.GetAsync(id));
+            }
+            catch
+            {
+                return BadRequest("Error al buscar el empleado");
+            }
         }
 
         [HttpPost("GetAll")]
-        public async Task<IActionResult> GetAll()
+        public async Task<IActionResult> GetAll([FromBody] EmployeeFilterListDto employeeFilterList)
         {
-            return Ok(await _employeeService.GetAllAsync());
+            try
+            {
+                return Ok(await _employeeService.GetAllAsync(employeeFilterList));
+            }
+            catch
+            {
+                return BadRequest("Error al filtrar empleados");
+            }
         }
 
         [HttpPut("AddOrUpdate")]
         public async Task<IActionResult> AddOrUpdate([FromBody] EmployeeDto employeeDto)
         {
-            await _employeeService.AddOrUpdateAsync(employeeDto);
-            return Ok();
+            try
+            {
+                await _employeeService.AddOrUpdateAsync(employeeDto);
+                return Ok();
+            }
+            catch
+            {
+                return BadRequest("Error al actualizar el empleado");
+            }
         }
     }
 }

@@ -8,6 +8,8 @@ namespace Contpaqi.Data.Repositories
     {
         public EmployeeRepository(ContpaqiDbContext context) : base(context)
         { }
+
+
     }
 
 }

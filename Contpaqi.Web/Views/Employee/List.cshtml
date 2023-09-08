@@ -1,0 +1,59 @@
+﻿@model IEnumerable<Contpaqi.Data.DataTransferObjects.EmployeeListDto>
+@{
+    ViewData["Title"] = "Employees List";
+}
+
+<div class="row">
+    <div class="offset-9 col-3 mb-3">
+        <a asp-action="AddOrUpdate" asp-controller="Employee" class="btn btn-secondary d-block mx-auto">
+            Nuevo Empleado
+        </a>
+    </div>
+</div>
+
+<div class="row">
+    <div class="offset-12">
+        <div class="card border">
+            <div class="card-header bg-dark">
+                <h3 class="text-white">Listado de empleados</h3>
+            </div>
+            <div class="card-body">
+                <div class="table-responsive">
+                    @if (Model.Count() > 0)
+                    {
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>@Html.DisplayNameFor(x => x.FullName)</th>
+                                    <th>@Html.DisplayNameFor(x => x.Email)</th>
+                                    <th>@Html.DisplayNameFor(x => x.Position)</th>
+                                    <th>@Html.DisplayNameFor(x => x.Rfc)</th>
+                                    <th>@Html.DisplayNameFor(x => x.HireDate)</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (var employee in Model)
+                                {
+                                    <tr>
+                                        <td>@Html.DisplayFor(x => employee.FullName)</td>
+                                        <td>@Html.DisplayFor(x => employee.Email)</td>
+                                        <td>@Html.DisplayFor(x => employee.Position)</td>
+                                        <td>@Html.DisplayFor(x => employee.Rfc)</td>
+                                        <td>@Html.DisplayFor(x => employee.HireDate)</td>
+                                        <td>
+                                            <a class="btn btn-warning" asp-action="AddOrUpdate" asp-route-id="@employee.Id">Editar</a>
+                                        </td>
+                                    </tr>
+                                }
+                            </tbody>
+                        </table>
+                    }
+                    else
+                    {
+                        <p>No se encontraron registros</p>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,12 +1,3 @@
-using Contpaqi.Data.Mappings;
-using Contpaqi.Data.UnitOfWork;
-using System.Text.Json.Serialization;
-using System.Text.Json;
-using Contpaqi.Application.Services;
-using Contpaqi.Application.Services.Impl;
-using Contpaqi.Data.Contexts;
-using Microsoft.EntityFrameworkCore;
-
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.

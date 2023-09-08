@@ -10,11 +10,146 @@
                 <h3 class="text-white">Empleado</h3>
             </div>
             <div class="card-body">
-                <form asp-action="Save" method="post">
+                <form id="employeeForm" method="post">
+                    <div class="text-danger">
+                        <!-- Aquí se mostrarán los mensajes de validación del modelo -->
+                    </div>
+
+                    <div class="form-group">
+                        <input type="hidden" id="Id" name="Id" class="form-control" placeholder="Name" />
+                    </div>
+
+                    <div class="form-group">
+                        <label for="Name" class="control-label">Nombre</label>
+                        <input type="text" id="Name" name="Name" class="form-control" placeholder="Nombre" />
+                        <span class="text-danger">
+                            <!-- Aquí se mostrarán los mensajes de validación para Name -->
+                        </span>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="LastName" class="control-label">Apellido</label>
+                        <input type="text" id="LastName" name="LastName" class="form-control" placeholder="Apellido" />
+                        <span class="text-danger">
+                            <!-- Aquí se mostrarán los mensajes de validación para LastName -->
+                        </span>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="MiddleName" class="control-label">Segundo Nombre</label>
+                        <input type="text" id="MiddleName" name="MiddleName" class="form-control" placeholder="Segundo Nombre" />
+                        <span class="text-danger">
+                            <!-- Aquí se mostrarán los mensajes de validación para MiddleName -->
+                        </span>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="Address" class="control-label">Dirección</label>
+                        <input type="text" id="Address" name="Address" class="form-control" placeholder="Dirección" />
+                        <span class="text-danger">
+                            <!-- Aquí se mostrarán los mensajes de validación para Address -->
+                        </span>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="PhoneNumber" class="control-label">Teléfono</label>
+                        <input type="text" id="PhoneNumber" name="PhoneNumber" class="form-control" placeholder="Teléfono" />
+                        <span class="text-danger">
+                            <!-- Aquí se mostrarán los mensajes de validación para PhoneNumber -->
+                        </span>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="Age" class="control-label">Edad</label>
+                        <input type="number" id="Age" name="Age" class="form-control" placeholder="Edad" />
+                        <span class="text-danger">
+                            <!-- Aquí se mostrarán los mensajes de validación para Age -->
+                        </span>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="CivilStatus" class="control-label">Estado Civil</label>
+                        <input type="text" id="CivilStatus" name="CivilStatus" class="form-control" placeholder="Estado Civil" />
+                        <span class="text-danger">
+                            <!-- Aquí se mostrarán los mensajes de validación para CivilStatus -->
+                        </span>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="DateOfBirth" class="control-label">Fecha de Nacimiento</label>
+                        <input type="date" id="DateOfBirth" name="DateOfBirth" class="form-control" placeholder="Fecha de Nacimiento" />
+                        <span class="text-danger">
+                            <!-- Aquí se mostrarán los mensajes de validación para DateOfBirth -->
+                        </span>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="Position" class="control-label">Posición</label>
+                        <input type="text" id="Position" name="Position" class="form-control" placeholder="Posición" />
+                        <span class="text-danger">
+                            <!-- Aquí se mostrarán los mensajes de validación para Position -->
+                        </span>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="Email" class="control-label">Correo Electrónico</label>
+                        <input type="email" id="Email" name="Email" class="form-control" placeholder="Correo Electrónico" />
+                        <span class="text-danger">
+                            <!-- Aquí se mostrarán los mensajes de validación para Email -->
+                        </span>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="Gender" class="control-label">Género</label>
+                        <input type="text" id="Gender" name="Gender" class="form-control" placeholder="Género" />
+                        <span class="text-danger">
+                            <!-- Aquí se mostrarán los mensajes de validación para Gender -->
+                        </span>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="Rfc" class="control-label">RFC</label>
+                        <input type="text" id="Rfc" name="Rfc" class="form-control" placeholder="RFC" />
+                        <span class="text-danger">
+                            <!-- Aquí se mostrarán los mensajes de validación para Rfc -->
+                        </span>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="EndDate" class="control-label">Fecha de Término</label>
+                        <input type="date" id="EndDate" name="EndDate" class="form-control" placeholder="Fecha de Término" />
+                        <span class="text-danger">
+                            <!-- Aquí se mostrarán los mensajes de validación para EndDate -->
+                        </span>
+                    </div>
+
+                    <div class="form-group mt-3">
+                        <a href="/Employee/Index" class="btn btn-secondary mx-auto">
+                            Cancelar
+                        </a>
+                        <button type="button" id="submitButton" class="btn btn-primary mx-auto">
+                            Guardar
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+@*<div class="row">
+    <div class="offset-12">
+        <div class="card border">
+            <div class="card-header bg-dark">
+                <h3 class="text-white">Empleado</h3>
+            </div>
+            <div class="card-body">
+                <form id="employeeForm" method="post">
                     <div asp-validation-summary="ModelOnly" class="text-danger"></div>
 
                     <div class="form-group">
-                        <input type="hidden" asp-for="Id" class="form-control" placeholder="Name" />
+                        <input type="hidden" asp-for="Id" value="0" class="form-control" placeholder="Name" />
                     </div>
 
                     <div class="form-group">
@@ -99,10 +234,19 @@
                         <a asp-action="Index" asp-controller="Employee" class="btn btn-secondary mx-auto">
                             Cancelar
                         </a>
-                        <button type="submit" class="btn btn-primary mx-auto">Guardar</button>
+                        <button type="button" id="submitButton" class="btn btn-primary mx-auto">
+                            Guardar
+                        </button>
                     </div>
                 </form>
             </div>
         </div>
     </div>
-</div>
+</div>*@
+
+@section Scripts    
+{
+    <script src="~/lib/axios/axios.min.js"></script>
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/js/employee/AddOrUpdate.js"></script>
+}

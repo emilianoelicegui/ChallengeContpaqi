@@ -9,10 +9,14 @@ using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
 
+//add cors
+builder.Services.AddCors(p => p.AddPolicy("corsapp", builder =>
+{
+    builder.WithOrigins("https://localhost:7183").AllowAnyMethod().AllowAnyHeader();
+}));
+
 // Add services to the container.
 
-
-// Add services to the container.
 builder.Services.AddControllers()
         //data annotations validation disabled
         .ConfigureApiBehaviorOptions(o =>
@@ -60,6 +64,7 @@ if (app.Environment.IsDevelopment())
     app.UseSwagger();
     app.UseSwaggerUI();
 }
+app.UseCors("corsapp");
 
 app.UseHttpsRedirection();
 

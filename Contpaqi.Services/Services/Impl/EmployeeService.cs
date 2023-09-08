@@ -1,11 +1,11 @@
 ﻿using AutoMapper;
 using Contpaqi.Data.DataTransferObjects;
+using Contpaqi.Data.Enums;
 using Contpaqi.Data.Models;
 using Contpaqi.Data.UnitOfWork;
 using Microsoft.Extensions.Logging;
 using System.ComponentModel.DataAnnotations;
 using System.Linq.Expressions;
-using System.Security;
 
 namespace Contpaqi.Application.Services.Impl
 {
@@ -49,14 +49,37 @@ namespace Contpaqi.Application.Services.Impl
             }
         }
 
-        public async Task<IEnumerable<EmployeeListDto>> GetAllAsync()
+        public async Task<ObjectListDto<EmployeeListDto>> GetAllAsync(EmployeeFilterListDto employeeFilterList)
         {
             _logger.LogInformation("GetAllAsync service init ..");
 
-            var result = await _unitOfWork.EmployeeRepository.GetAllAsync();
-            
-            return _mapper.Map<IEnumerable<EmployeeListDto>>
-                (result);
+            Expression<Func<Employee, bool>> f = c => true;
+        
+            var employees = _mapper.Map<IEnumerable<EmployeeListDto>>
+                (await _unitOfWork.EmployeeRepository.GetAllAsync(employeeFilterList.Start, 
+                employeeFilterList.Length, expression: f = f.And
+                (
+                    x => (x.Name.ToUpper().Contains(employeeFilterList.Name.ToUpper()) || 
+                    x.LastName.ToUpper().Contains(employeeFilterList.Name.ToUpper()) ||
+                    x.MiddleName.ToUpper().Contains(employeeFilterList.Name.ToUpper())) &&
+                    x.Rfc.Contains(employeeFilterList.Rfc) &&
+                    (employeeFilterList.Status == EmployeeStatusEnum.Active ?
+                        (x.EndDate == null || x.EndDate > DateTime.Today) :
+                        (x.EndDate != null && x.EndDate < DateTime.Today))
+                )));
+
+            var result = new ObjectListDto<EmployeeListDto>
+            {
+                Data = employees,
+                RecordsTotal = employees.Count(),
+                RecordsFiltered = employees.Count(), // En este ejemplo, no aplicamos filtros
+                Draw = employeeFilterList.Draw, // Número de solicitud, puedes incrementarlo según corresponda
+                Start = employeeFilterList.Start,
+                Length = employeeFilterList.Length,
+                Error = ""
+            };
+
+            return result;
         }
 
         public async Task<EmployeeDto> GetAsync(int id)

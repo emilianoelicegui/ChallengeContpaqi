@@ -43,6 +43,9 @@ namespace Contpaqi.Data.Repositories
         public async Task<IEnumerable<T>> GetAllAsync(Expression<Func<T, bool>> expression, CancellationToken cancellationToken = default)
             => await _entitiySet.Where(expression).ToListAsync(cancellationToken);
 
+        public async Task<IEnumerable<T>> GetAllAsync(int start, int lenght, Expression<Func<T, bool>> expression, CancellationToken cancellationToken = default)
+            => await _entitiySet.Where(expression).Take(lenght).Skip(start).ToListAsync(cancellationToken);
+
         public async Task<T> GetAsync(Expression<Func<T, bool>> expression, CancellationToken cancellationToken = default)
             => await _entitiySet.FirstOrDefaultAsync(expression, cancellationToken);
 

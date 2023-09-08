@@ -5,7 +5,7 @@ namespace Contpaqi.Application.Services
     public interface IEmployeeService
     {
         Task AddOrUpdateAsync(EmployeeDto employee);
-        Task<IEnumerable<EmployeeListDto>> GetAllAsync();
+        Task<ObjectListDto<EmployeeListDto>> GetAllAsync(EmployeeFilterListDto filterList);
         Task<EmployeeDto> GetAsync(int id);
     }
 }
