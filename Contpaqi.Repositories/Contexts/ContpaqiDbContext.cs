@@ -26,7 +26,7 @@ public partial class ContpaqiDbContext : DbContext
     {
         modelBuilder.Entity<Employee>(entity =>
         {
-            entity.HasKey(e => e.Id).HasName("PK__Employee__3214EC07FB033AAF");
+            entity.HasKey(e => e.Id).HasName("PK__Employee__3214EC07CF753A12");
 
             entity.ToTable("Employee");
 
@@ -36,15 +36,15 @@ public partial class ContpaqiDbContext : DbContext
             entity.Property(e => e.Email).HasMaxLength(100);
             entity.Property(e => e.EndDate).HasColumnType("date");
             entity.Property(e => e.Gender).HasMaxLength(10);
-            entity.Property(e => e.HireDate).HasColumnType("date");
+            entity.Property(e => e.HireDate)
+                .HasDefaultValueSql("(getdate())")
+                .HasColumnType("date");
             entity.Property(e => e.LastName).HasMaxLength(50);
             entity.Property(e => e.MiddleName).HasMaxLength(50);
             entity.Property(e => e.Name).HasMaxLength(50);
             entity.Property(e => e.PhoneNumber).HasMaxLength(15);
             entity.Property(e => e.Position).HasMaxLength(50);
-            entity.Property(e => e.Rfc)
-                .HasMaxLength(13)
-                .HasColumnName("RFC");
+            entity.Property(e => e.Rfc).HasMaxLength(13);
         });
 
         OnModelCreatingPartial(modelBuilder);

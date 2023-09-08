@@ -12,7 +12,6 @@
             <div class="card-body">
                 <form id="employeeForm" method="post">
                     <div class="text-danger">
-                        <!-- Aquí se mostrarán los mensajes de validación del modelo -->
                     </div>
 
                     <div class="form-group">
@@ -23,7 +22,6 @@
                         <label for="Name" class="control-label">Nombre</label>
                         <input type="text" id="Name" name="Name" class="form-control" placeholder="Nombre" />
                         <span class="text-danger">
-                            <!-- Aquí se mostrarán los mensajes de validación para Name -->
                         </span>
                     </div>
 
@@ -31,7 +29,6 @@
                         <label for="LastName" class="control-label">Apellido</label>
                         <input type="text" id="LastName" name="LastName" class="form-control" placeholder="Apellido" />
                         <span class="text-danger">
-                            <!-- Aquí se mostrarán los mensajes de validación para LastName -->
                         </span>
                     </div>
 
@@ -39,7 +36,6 @@
                         <label for="MiddleName" class="control-label">Segundo Nombre</label>
                         <input type="text" id="MiddleName" name="MiddleName" class="form-control" placeholder="Segundo Nombre" />
                         <span class="text-danger">
-                            <!-- Aquí se mostrarán los mensajes de validación para MiddleName -->
                         </span>
                     </div>
 
@@ -47,7 +43,6 @@
                         <label for="Address" class="control-label">Dirección</label>
                         <input type="text" id="Address" name="Address" class="form-control" placeholder="Dirección" />
                         <span class="text-danger">
-                            <!-- Aquí se mostrarán los mensajes de validación para Address -->
                         </span>
                     </div>
 
@@ -55,7 +50,6 @@
                         <label for="PhoneNumber" class="control-label">Teléfono</label>
                         <input type="text" id="PhoneNumber" name="PhoneNumber" class="form-control" placeholder="Teléfono" />
                         <span class="text-danger">
-                            <!-- Aquí se mostrarán los mensajes de validación para PhoneNumber -->
                         </span>
                     </div>
 
@@ -63,7 +57,6 @@
                         <label for="Age" class="control-label">Edad</label>
                         <input type="number" id="Age" name="Age" class="form-control" placeholder="Edad" />
                         <span class="text-danger">
-                            <!-- Aquí se mostrarán los mensajes de validación para Age -->
                         </span>
                     </div>
 
@@ -71,7 +64,6 @@
                         <label for="CivilStatus" class="control-label">Estado Civil</label>
                         <input type="text" id="CivilStatus" name="CivilStatus" class="form-control" placeholder="Estado Civil" />
                         <span class="text-danger">
-                            <!-- Aquí se mostrarán los mensajes de validación para CivilStatus -->
                         </span>
                     </div>
 
@@ -79,7 +71,6 @@
                         <label for="DateOfBirth" class="control-label">Fecha de Nacimiento</label>
                         <input type="date" id="DateOfBirth" name="DateOfBirth" class="form-control" placeholder="Fecha de Nacimiento" />
                         <span class="text-danger">
-                            <!-- Aquí se mostrarán los mensajes de validación para DateOfBirth -->
                         </span>
                     </div>
 
@@ -87,7 +78,6 @@
                         <label for="Position" class="control-label">Posición</label>
                         <input type="text" id="Position" name="Position" class="form-control" placeholder="Posición" />
                         <span class="text-danger">
-                            <!-- Aquí se mostrarán los mensajes de validación para Position -->
                         </span>
                     </div>
 
@@ -95,7 +85,6 @@
                         <label for="Email" class="control-label">Correo Electrónico</label>
                         <input type="email" id="Email" name="Email" class="form-control" placeholder="Correo Electrónico" />
                         <span class="text-danger">
-                            <!-- Aquí se mostrarán los mensajes de validación para Email -->
                         </span>
                     </div>
 
@@ -103,7 +92,6 @@
                         <label for="Gender" class="control-label">Género</label>
                         <input type="text" id="Gender" name="Gender" class="form-control" placeholder="Género" />
                         <span class="text-danger">
-                            <!-- Aquí se mostrarán los mensajes de validación para Gender -->
                         </span>
                     </div>
 
@@ -111,7 +99,6 @@
                         <label for="Rfc" class="control-label">RFC</label>
                         <input type="text" id="Rfc" name="Rfc" class="form-control" placeholder="RFC" />
                         <span class="text-danger">
-                            <!-- Aquí se mostrarán los mensajes de validación para Rfc -->
                         </span>
                     </div>
 
@@ -119,7 +106,6 @@
                         <label for="EndDate" class="control-label">Fecha de Término</label>
                         <input type="date" id="EndDate" name="EndDate" class="form-control" placeholder="Fecha de Término" />
                         <span class="text-danger">
-                            <!-- Aquí se mostrarán los mensajes de validación para EndDate -->
                         </span>
                     </div>
 
@@ -137,116 +123,11 @@
     </div>
 </div>
 
-
-@*<div class="row">
-    <div class="offset-12">
-        <div class="card border">
-            <div class="card-header bg-dark">
-                <h3 class="text-white">Empleado</h3>
-            </div>
-            <div class="card-body">
-                <form id="employeeForm" method="post">
-                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-
-                    <div class="form-group">
-                        <input type="hidden" asp-for="Id" value="0" class="form-control" placeholder="Name" />
-                    </div>
-
-                    <div class="form-group">
-                        <label asp-for="Name" class="control-label"></label>
-                        <input asp-for="Name" class="form-control" placeholder="Name" />
-                        <span asp-validation-for="Name" class="text-danger"></span>
-                    </div>
-
-                    <div class="form-group">
-                        <label asp-for="LastName" class="control-label"></label>
-                        <input asp-for="LastName" class="form-control" placeholder="Last Name" />
-                        <span asp-validation-for="LastName" class="text-danger"></span>
-                    </div>
-
-                    <div class="form-group">
-                        <label asp-for="MiddleName" class="control-label"></label>
-                        <input asp-for="MiddleName" class="form-control" placeholder="Middle Name" />
-                        <span asp-validation-for="MiddleName" class="text-danger"></span>
-                    </div>
-
-                    <div class="form-group">
-                        <label asp-for="Address" class="control-label"></label>
-                        <input asp-for="Address" class="form-control" placeholder="Address" />
-                        <span asp-validation-for="Address" class="text-danger"></span>
-                    </div>
-
-                    <div class="form-group">
-                        <label asp-for="PhoneNumber" class="control-label"></label>
-                        <input asp-for="PhoneNumber" class="form-control" placeholder="PhoneNumber" />
-                        <span asp-validation-for="PhoneNumber" class="text-danger"></span>
-                    </div>
-
-                    <div class="form-group">
-                        <label asp-for="Age" class="control-label"></label>
-                        <input asp-for="Age" class="form-control" placeholder="Age" />
-                        <span asp-validation-for="Age" class="text-danger"></span>
-                    </div>
-
-                    <div class="form-group">
-                        <label asp-for="CivilStatus" class="control-label"></label>
-                        <input asp-for="CivilStatus" class="form-control" placeholder="CivilStatus" />
-                        <span asp-validation-for="CivilStatus" class="text-danger"></span>
-                    </div>
-
-                    <div class="form-group">
-                        <label asp-for="DateOfBirth" class="control-label"></label>
-                        <input asp-for="DateOfBirth" class="form-control" placeholder="DateOfBirth" />
-                        <span asp-validation-for="DateOfBirth" class="text-danger"></span>
-                    </div>
-
-                    <div class="form-group">
-                        <label asp-for="Position" class="control-label"></label>
-                        <input asp-for="Position" class="form-control" placeholder="Position" />
-                        <span asp-validation-for="Position" class="text-danger"></span>
-                    </div>
-
-                    <div class="form-group">
-                        <label asp-for="Email" class="control-label"></label>
-                        <input asp-for="Email" class="form-control" placeholder="Email" />
-                        <span asp-validation-for="Email" class="text-danger"></span>
-                    </div>
-
-                    <div class="form-group">
-                        <label asp-for="Gender" class="control-label"></label>
-                        <input asp-for="Gender" class="form-control" placeholder="Gender" />
-                        <span asp-validation-for="Gender" class="text-danger"></span>
-                    </div>
-
-                    <div class="form-group">
-                        <label asp-for="Rfc" class="control-label"></label>
-                        <input asp-for="Rfc" class="form-control" placeholder="Rfc" />
-                        <span asp-validation-for="Rfc" class="text-danger"></span>
-                    </div>
-
-                    <div class="form-group">
-                        <label asp-for="EndDate" class="control-label"></label>
-                        <input asp-for="EndDate" class="form-control" placeholder="EndDate" />
-                        <span asp-validation-for="EndDate" class="text-danger"></span>
-                    </div>
-
-                    <div class="form-group mt-3">
-                        <a asp-action="Index" asp-controller="Employee" class="btn btn-secondary mx-auto">
-                            Cancelar
-                        </a>
-                        <button type="button" id="submitButton" class="btn btn-primary mx-auto">
-                            Guardar
-                        </button>
-                    </div>
-                </form>
-            </div>
-        </div>
-    </div>
-</div>*@
-
 @section Scripts    
 {
     <script src="~/lib/axios/axios.min.js"></script>
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/jquery-validation/dist/jquery.validate.js"></script>
+    <script src="~/lib/jquery-validation/dist/additional-methods.min.js"></script>
     <script src="~/js/employee/AddOrUpdate.js"></script>
 }

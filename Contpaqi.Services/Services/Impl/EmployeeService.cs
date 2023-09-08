@@ -33,8 +33,13 @@ namespace Contpaqi.Application.Services.Impl
                     .Get(expression: f = f.And(x => x.Id == employeeDto.Id)) : null;
 
                 if (employee == null)
+                {
+                    employee = _mapper.Map<Employee>(employeeDto);
+                    employee.HireDate = DateTime.Today;
+
                     _unitOfWork.EmployeeRepository
-                        .Add(_mapper.Map<Employee>(employeeDto));
+                        .Add(employee);
+                }
                 else
                     _mapper.Map(employeeDto, employee);
 
@@ -54,7 +59,19 @@ namespace Contpaqi.Application.Services.Impl
             _logger.LogInformation("GetAllAsync service init ..");
 
             Expression<Func<Employee, bool>> f = c => true;
-        
+
+            var employeesTotal = _mapper.Map<IEnumerable<EmployeeListDto>>
+                (await _unitOfWork.EmployeeRepository.GetAllAsync(expression: f = f.And
+                (
+                    x => (x.Name.ToUpper().Contains(employeeFilterList.Name.ToUpper()) ||
+                    x.LastName.ToUpper().Contains(employeeFilterList.Name.ToUpper()) ||
+                    x.MiddleName.ToUpper().Contains(employeeFilterList.Name.ToUpper())) &&
+                    x.Rfc.Contains(employeeFilterList.Rfc) &&
+                    (employeeFilterList.Status == EmployeeStatusEnum.Active ?
+                        (x.EndDate == null || x.EndDate > DateTime.Today) :
+                        (x.EndDate != null && x.EndDate < DateTime.Today))
+                )));
+
             var employees = _mapper.Map<IEnumerable<EmployeeListDto>>
                 (await _unitOfWork.EmployeeRepository.GetAllAsync(employeeFilterList.Start, 
                 employeeFilterList.Length, expression: f = f.And
@@ -71,8 +88,8 @@ namespace Contpaqi.Application.Services.Impl
             var result = new ObjectListDto<EmployeeListDto>
             {
                 Data = employees,
-                RecordsTotal = employees.Count(),
-                RecordsFiltered = employees.Count(), // En este ejemplo, no aplicamos filtros
+                RecordsTotal = employeesTotal.Count(),
+                RecordsFiltered = employeesTotal.Count(), // En este ejemplo, no aplicamos filtros
                 Draw = employeeFilterList.Draw, // Número de solicitud, puedes incrementarlo según corresponda
                 Start = employeeFilterList.Start,
                 Length = employeeFilterList.Length,

@@ -52,4 +52,16 @@
         $("#StatusFilter").val(0); 
         dataTable.ajax.reload(); 
     });
+
+    $("#showFilters").click(function () {
+        $("#divFilters").show();
+        $("#hideFilters").show();
+        $("#showFilters").hide();
+    });
+
+    $("#hideFilters").click(function () {
+        $("#divFilters").hide();
+        $("#hideFilters").hide();
+        $("#showFilters").show();
+    });
 });
